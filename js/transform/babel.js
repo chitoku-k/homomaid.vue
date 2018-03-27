@@ -1,10 +1,8 @@
-define(['babel-standalone'], function (Babel) {
+define(['babel-standalone', 'http-vue-loader'], function (Babel, httpVueLoader) {
     return {
         load: function (name, req, onload, config) {
-            fetch(req.toUrl(name) + ".js").then(function (x) {
-                return x.text();
-            }).then(function (x) {
-                return Babel.transform(x, {
+            httpVueLoader.httpRequest(req.toUrl(name) + ".js").then(function (script) {
+                onload.fromText(Babel.transform(script, {
                     presets: [
                         'es2017',
                         'stage-3',
@@ -12,9 +10,7 @@ define(['babel-standalone'], function (Babel) {
                     plugins: [
                         'transform-es2015-modules-amd',
                     ],
-                }).code;
-            }).then(function (x) {
-                return onload.fromText(x);
+                }).code);
             });
         },
     };
