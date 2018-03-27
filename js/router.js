@@ -1,11 +1,15 @@
-httpVueLoader.langProcessor.babel = script => Babel.transform(script, { presets: ['es2017', 'stage-3'] }).code;
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Homomaid from 'component!components/homomaid';
 
-const router = new VueRouter({
+Vue.use(VueRouter);
+
+export default new VueRouter({
     mode: 'history',
     routes: [
         {
             path: '/',
-            component: httpVueLoader('./js/components/homomaid.vue'),
+            component: Homomaid,
         },
     ],
 });

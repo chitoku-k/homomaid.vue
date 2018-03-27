@@ -3,7 +3,10 @@
 </template>
 
 <script lang="babel">
-    module.exports = {
+    import Vuex from 'vuex';
+
+    export default {
+        name: 'Homomaid',
         computed: {
             ...Vuex.mapState([
                 'message',
