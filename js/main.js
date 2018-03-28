@@ -11,7 +11,7 @@ require.config({
         'vuex': 'https://cdnjs.cloudflare.com/ajax/libs/vuex/3.0.1/vuex.min',
         'vue-router': 'https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.1/vue-router.min',
         // 'http-vue-loader': 'https://unpkg.com/http-vue-loader@1.3.4/src/httpVueLoader',
-        'http-vue-loader': 'https://cdn.rawgit.com/chitoku-k/http-vue-loader/1b2237e3b137dcb9f7a3c1a87d6be6d073fb427d/src/httpVueLoader',
+        'http-vue-loader': 'https://cdn.rawgit.com/chitoku-k/http-vue-loader/bc8e142332b8f396715ec3fc61fbad03ae2a8040/src/httpVueLoader',
     },
 });
 require(['babel!app']);
