@@ -1,6 +1,7 @@
 define(['babel-standalone', 'http-vue-loader'], function (Babel, httpVueLoader) {
     httpVueLoader.langProcessor.babel = function (script) {
         return Babel.transform(script, {
+            moduleId: this.name,
             presets: [
                 'es2015',
                 'stage-3',
@@ -8,7 +9,7 @@ define(['babel-standalone', 'http-vue-loader'], function (Babel, httpVueLoader) 
             plugins: [
                 'transform-es2015-modules-amd',
             ],
-        }).code.replace(/define\(/, 'define("' + this.name + '", ');
+        }).code;
     };
 
     return {
