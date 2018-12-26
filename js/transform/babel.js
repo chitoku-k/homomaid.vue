@@ -1,8 +1,10 @@
 define(['babel-standalone', 'babel-polyfill', 'http-vue-loader'], function (Babel, _, httpVueLoader) {
     return {
         load: function (name, req, onload, config) {
-            httpVueLoader.httpRequest(req.toUrl(name) + ".js").then(function (script) {
+            httpVueLoader.httpRequest(req.toUrl(name) + '.js').then(function (script) {
                 onload.fromText(Babel.transform(script, {
+                    sourceFileName: req.toUrl(name) + '.js',
+                    sourceMaps: 'inline',
                     presets: [
                         'es2015',
                         'stage-3',

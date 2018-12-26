@@ -7,9 +7,13 @@ define(['babel-standalone', 'http-vue-loader'], function (Babel, httpVueLoader) 
         }.bind(this));
     };
 
+    // See: https://babeljs.io/docs/en/options#source-map-options
     httpVueLoader.langProcessor.babel = function (script) {
         return Babel.transform(script, {
             moduleId: this.name,
+            sourceFileName: this.name.substr(this.name.lastIndexOf('/')) + '.vue',
+            sourceMaps: 'inline',
+            sourceRoot: this.baseURI,
             presets: [
                 'es2015',
                 'stage-3',
